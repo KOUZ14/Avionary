@@ -20,12 +20,37 @@
 
 <each of the 14 requirements will have a use case associated with it>
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
-1. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description>
-- **Trigger:** <can be a list or short description>
+1. **Create Account with Email and Password** [Iskandar Daoud]
+- **Summary:** Users can create a new account within the application by providing a valid email address and password.
+- **Actors:** New Users, Application
+- **Pre-conditions:** User is not currently registered in the application.
+- **Trigger:** User clicks "Create New Account."
 - **Primary Sequence:**
-1. Ut enim ad minim veniam, quis nostrum e
-2. Et sequi incidunt
+- 1. User enters their email address in "Email:" field.
+- 2. User enters a password with at least one uppercase character and at least one special symbol in the "Password:" field.
+- 3. User re-enters same password in "Confirm Password:" field.
+- 4. User clicks "Create Account".
+- 5. The application returns the user to the login screen.
+- **Primary Postcondition:** The user account is successfully created, and the user is now registered in the application.
+- **Alternate Sequence**
+- 5. The provided email address is already associated with an existing account.
+- 6. The application informs the user that the email address is already in use and prompts them to use a different one.
+     
+2. **User logout** [Iskandar Daoud]
+- **Summary:** Users can securely log out of the application to protect their account and data.
+- **Actors:** Registered Users and Application
+- **Pre-conditions**: User has an account and is logged into the application.
+- **Trigger**: User decides to log out of the application.
+- **Primary Sequence**:
+- 1. User navigates to the logout option within the application.
+- 2. User clicks on the “logout” button.
+- 3. User confirms the logout action.
+- 4. The application invalidates the user's session, logging them out.
+- 5. The application returns the user to the login screen
+- **Primary Postcondition:** The user is successfully logged out, and their session is terminated.
+- **Alternative Sequence:**
+- 3. User cancels logout option.
+- 4. User remains logged in and stays on the current screen.
 3. Quis aute iure reprehenderit
 4. ...
 5. ...
