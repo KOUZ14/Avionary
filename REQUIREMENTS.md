@@ -1,7 +1,7 @@
 ## <remove all of the example text and notes in < > such as this one>
 
 ## Functional Requirements
-1. Users must be able to create an account using email and password.
+1. Users must be able to create an account and sign in using email and password.
 2. Users must be able to log out of their accounts.
 3. Users should be able to search for flights based on origin, destination, and date.
 4. Users should receive a confirmation of their booking via email.
