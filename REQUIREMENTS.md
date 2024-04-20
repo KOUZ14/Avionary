@@ -6,9 +6,9 @@
 3. Users should be able to search for flights based on origin, destination, and date.
 4. Users should receive a confirmation of their booking via email.
 5. Users should be able to book a flight from the search results.
-6. requirement
-7. requirement
-8. requirement
+6. Users should be able to book a hotel from the search results
+7. Users are able to cancel their hotel booking
+8. Users are able to check their flight status
 9. requirement
 10. requirement
 
@@ -52,12 +52,13 @@
 - 4. User remains logged in and stays on the current screen.
 3. Quis aute iure reprehenderit
 4. ...
-5. ...
+5. ....
 6. ...
 7. ...
 8. ...
 9. ...
-10. <Try to stick to a max of 12 steps>
+10. ...
+11. <Try to stick to a max of 12 steps>
 - **Primary Postconditions:** <can be a list or short description>
 - **Alternate Sequence:** <you can have more than one alternate sequence to
 describe multiple issues that may arise and their outcomes>
@@ -109,3 +110,39 @@ describe multiple issues that may arise and their outcomes>
 2. User confirms the flight details.
 3. User fails to complete the payment process.
 4. User is met with a failed to process payment error.
+
+
+6. Users should be able to book a hotel from the search results
+- **Pre-Condition:** User is logged in 
+- **Trigger:** User clicks on book hotel on notes menu bar
+- **Primary Sequence:**
+1.User is selects from different options of hotels
+2.User confirms which hotel they want
+3.User confirms the hotel they wish to stay in
+4.User is prompted they have succfesully booked a hotel
+- **Primary Postconditions:**
+1. User has successfully booked a hotel
+
+7. Users are able to cancel their hotel booking
+- **Pre-Condition:** User is logged and has booked a hotel
+- **Trigger:** User clicks on hotel status from menu bar
+- **Primary Sequence:**
+1.User selects hotel status
+2.User is prompted with options on hotel status or cancel
+3.User selects cancel hotel booking
+4.User is prompted with hotel booking is succesufllly canceled
+- **Primary Postconditions:**
+1. User has canceled their hotel booking
+
+8. Users are able to check their flight status
+- **Pre-Condition:** User has booked a flight
+- **Trigger:** User clicks flight status on notes menu bar
+- **Primary Sequence:**
+1.The user clicks on button “Check Flight Status”
+2.User is prompted to enter their flight number
+- **Primary Postconditions:**
+  - Flight status is showed
+
+ **Alternate Sequence:** The provided flight number is wrong
+	1. User is prompted error, please input a correct flight number
+     2. Returns them back to prompt of inputting flight number
