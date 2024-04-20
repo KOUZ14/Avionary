@@ -7,8 +7,8 @@
 6. Users should be able to book a hotel from the search results
 7. Users are able to cancel their hotel booking
 8. Users are able to check their flight status
-9. requirement
-10. requirement
+9. Users should be able to view their past bookings.
+10. Users should be able to cancel their booking
 
 
 ## Non-functional Requirements
@@ -127,7 +127,7 @@ describe multiple issues that may arise and their outcomes>
 
 9. Users are able to see their booking history
 - **Pre-Condition:** User has booked a flight
-- **Trigger:** 
+- **Trigger:** Booking history button
 - **Primary Sequence:**
 1. User navigates to the booking history page.
 2. System retrieves the user’s past bookings.
@@ -135,7 +135,7 @@ describe multiple issues that may arise and their outcomes>
 
 10. Users are able to cancel their flights
 - **Pre-Condition:** User has booked a flight
-- **Trigger:** 
+- **Trigger:** Flight cancel button
 - **Primary Sequence:**
 1. User selects a booking from their booking history.
 2. User requests to cancel the booking.
