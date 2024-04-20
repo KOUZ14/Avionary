@@ -1,5 +1,3 @@
-## <remove all of the example text and notes in < > such as this one>
-
 ## Functional Requirements
 1. Users must be able to create an account and sign in using email and password.
 2. Users must be able to log out of their accounts.
@@ -12,13 +10,12 @@
 9. requirement
 10. requirement
 
-<using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
 
 ## Non-functional Requirements
 1. The website should load quickly and respond to user actions within 2 seconds.
 
-<each of the 14 requirements will have a use case associated with it>
-## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
+
+## Use Cases 
 1. **Create Account with Email and Password** [Iskandar Daoud] (Login Page)
 - **Summary:** Users can create a new account within the application by providing a valid email address and password.
 - **Actors:** New Users, Application
@@ -52,7 +49,7 @@
 - 4. User remains logged in and stays on the current screen.
 
 
-3. Flight Search (Home Page)
+3. Flight Search (Home Page) [Kousik]
 - **Pre-condition:** User has logged into their account.
 - **Trigger:** Search Button
 - **Primary Sequence:**
@@ -68,7 +65,7 @@ describe multiple issues that may arise and their outcomes>
 3. System fails to retrieve matching flights.
 4. User views an error message telling them what they forgot to enter.
 
-4. Flight Booking Confirmation
+4. Flight Booking Confirmation [Kousik]
 - **Pre-condition:** User has logged into their account and booked a flight.
 - **Trigger:** Book Button
 - **Primary Sequence:**
@@ -76,7 +73,7 @@ describe multiple issues that may arise and their outcomes>
 2. User receives the confirmation email.
 3. User verifies the booking details in the email.
 
-3. Flight Booking (Flight_Results)
+3. Flight Booking (Flight_Results) [Kousik]
 - **Pre-condition:** User has logged into their account and searched for flights.
 - **Trigger:** Book Button
 - **Primary Sequence:**
