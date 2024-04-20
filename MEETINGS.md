@@ -6,7 +6,7 @@
 - Finished half of the requirements, sketching, and use cases.
 - 2024 4-19
 - Finished up the missing requirements
-- Sketch the hotel booking section and flgith status
+- Sketched the hotel booking section and flight status
 
 ### 2023-10-08 at 13:30
 <meeting template would go here>
