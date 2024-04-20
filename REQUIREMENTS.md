@@ -19,7 +19,7 @@
 
 <each of the 14 requirements will have a use case associated with it>
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
-1. **Create Account with Email and Password** [Iskandar Daoud]
+1. **Create Account with Email and Password** [Iskandar Daoud] (Login Page)
 - **Summary:** Users can create a new account within the application by providing a valid email address and password.
 - **Actors:** New Users, Application
 - **Pre-conditions:** User is not currently registered in the application.
@@ -70,7 +70,7 @@ describe multiple issues that may arise and their outcomes>
 2. Ut enim ad minim veniam, quis nostrum e
 3. ...
 
-3. Flight Search
+3. Flight Search (Home Page)
 - **Pre-condition:** User has logged into their account.
 - **Trigger:** Search Button
 - **Primary Sequence:**
@@ -94,7 +94,7 @@ describe multiple issues that may arise and their outcomes>
 2. User receives the confirmation email.
 3. User verifies the booking details in the email.
 
-3. Flight Booking
+3. Flight Booking (Flight_Results)
 - **Pre-condition:** User has logged into their account and searched for flights.
 - **Trigger:** Book Button
 - **Primary Sequence:**

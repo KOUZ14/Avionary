@@ -1,8 +1,4 @@
 # Avionary
 
-Your summary of your project goes here...
+Avionary, an airline reservation website, meets the need for an easy, streamlined, and seamless way to plan a trip. The platform will let users sign up and log in, look for and book flights, confirm their bookings, track their flights, and book hotels. Our project is uniqye because it focuses on giving people a complete and streamlined experience, making sure that every step, from signing up, getting on the plane, to having a hotel room ready once they land is clear and easy. This tool is meant to make planning trips easier and more fun for people who use it.
 
-What's the specific problem you're solving? What is your project contribution (solution) to the problem?
-
-
-DELETE ALL OF THE TEXT I WROTE AND REPLACE WITH YOUR WRITING.
