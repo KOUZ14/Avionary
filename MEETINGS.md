@@ -1,6 +1,6 @@
 ## Meetings
 ### 2024-4-18 at 9:30pm
-- Iskander, Kousik
+- Iskander, Kousik, Kshitij, Henry
 - Team updates (15min or less)
 - Kousik worked on requirements, sketching web pages, and use cases. Will work on project summary next.
 - Finished half of the requirements, sketching, and use cases.
