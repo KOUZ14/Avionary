@@ -124,3 +124,20 @@ describe multiple issues that may arise and their outcomes>
  **Alternate Sequence:** The provided flight number is wrong
 	1. User is prompted error, please input a correct flight number
      2. Returns them back to prompt of inputting flight number
+
+9. Users are able to see their booking history
+- **Pre-Condition:** User has booked a flight
+- **Trigger:** 
+- **Primary Sequence:**
+1. User navigates to the booking history page.
+2. System retrieves the user’s past bookings.
+3. User views their past bookings.
+
+10. Users are able to cancel their flights
+- **Pre-Condition:** User has booked a flight
+- **Trigger:** 
+- **Primary Sequence:**
+1. User selects a booking from their booking history.
+2. User requests to cancel the booking.
+3. System cancels the booking.
+4. User receives a cancellation confirmation.
