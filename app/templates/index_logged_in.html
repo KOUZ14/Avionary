@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Search</title>
+    <title>Welcome</title>
 </head>
 <body>
+    <h1>Welcome!</h1>
+    <p>You are logged in.</p>
+
     <h2>Flight Search</h2>
     <form id="flightSearchForm" action="/search_flights" method="POST">
         <label for="origin">Origin:</label>
@@ -20,13 +23,7 @@
         <button type="submit">Search Flights</button>
     </form>
 
-    <!-- Login and Signup Buttons -->
-    <form action="/login" method="GET" style="display: inline;">
-        <button type="submit">Login</button>
-    </form>
-    <form action="/signup" method="GET" style="display: inline;">
-        <button type="submit">Signup</button>
-          <form action="/logout" method="GET" style="display: inline;">
+    <form action="/logout" method="GET">
         <button type="submit">Logout</button>
     </form>
 </body>
