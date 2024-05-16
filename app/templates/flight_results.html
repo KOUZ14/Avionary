@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Results</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to fetch the most recent flash message
+            function fetchRecentFlashMessage() {
+                $.getJSON('/get_recent_flash_message', function(data) {
+                    if (data.message) {
+                        // Display the flash message as a popup
+                        alert(data.message);
+                    }
+                });
+            }
+
+            // Call the function when the page is loaded
+            fetchRecentFlashMessage();
+        });
+    </script>
+    <h1>Flight Search Results</h1>
+    {% for flight in flights %}
+    <div class="flight-option">
+        <h2>Flight Option {{ loop.index }}</h2>
+        <p><strong>Departure Airport:</strong> {{ flight.itineraries[0].segments[0].departure.iataCode }}</p>
+        <p><strong>Departure Terminal:</strong> {{ flight.itineraries[0].segments[0].departure.terminal }}</p>
+        <p><strong>Departure Date:</strong> {{ flight.itineraries[0].segments[0].departure.at }}</p>
+        <p><strong>Arrival Airport:</strong> {{ flight.itineraries[0].segments[-1].arrival.iataCode }}</p>
+        <p><strong>Arrival Date:</strong> {{ flight.itineraries[0].segments[-1].arrival.at }}</p>
+        <p><strong>Flight Duration:</strong> {{ flight.itineraries[0].duration }}</p>
+        <p><strong>Airline:</strong> {{ flight.itineraries[0].segments[0].carrierCode }}</p>
+        <p><strong>Flight Number:</strong> {{ flight.itineraries[0].segments[0].number }}</p>
+        <p><strong>Price:</strong> {{ flight.price.total }} {{ flight.price.currency }}</p>
+        <p><strong>Fare Option:</strong> {{ flight.travelerPricings[0].fareOption }}</p>
+        <p><strong>Traveler Type:</strong> {{ flight.travelerPricings[0].travelerType }}</p>
+        <p><strong>Number of Bookable Seats:</strong> {{ flight.numberOfBookableSeats }}</p>
+        <p><strong>Last Ticketing Date:</strong> {{ flight.lastTicketingDate }}</p>
+        <p><strong>Last Ticketing Date Time:</strong> {{ flight.lastTicketingDateTime }}</p>
+        <form action="/book_flight" method="post">
+            <input type="hidden" name="flight_id" value="{{ flight.id }}">
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html>
