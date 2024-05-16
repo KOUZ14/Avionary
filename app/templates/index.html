@@ -6,13 +6,64 @@
     <title>Flight Search</title>
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to fetch the most recent flash message
+            function fetchRecentFlashMessage() {
+                $.getJSON('/get_recent_flash_message', function(data) {
+                    if (data.message) {
+                        // Display the flash message as a popup
+                        alert(data.message);
+                    }
+                });
+            }
+
+            // Call the function when the page is loaded
+            fetchRecentFlashMessage();
+        });
+    </script>
     <h2>Flight Search</h2>
     <form id="flightSearchForm" action="/search_flights" method="POST">
         <label for="origin">Origin:</label>
-        <input type="text" id="origin" name="origin" required><br><br>
-        
+        <select id="origin" name="origin">
+            <option value="ATL">Hartsfield-Jackson Atlanta International Airport</option>
+            <option value="LAX">Los Angeles International Airport</option>
+            <option value="ORD">O'Hare International Airport</option>
+            <option value="DFW">Dallas/Fort Worth International Airport</option>
+            <option value="DEN">Denver International Airport</option>
+            <option value="JFK">John F. Kennedy International Airport</option>
+            <option value="SFO">San Francisco International Airport</option>
+            <option value="LAS">McCarran International Airport</option>
+            <option value="SEA">Seattle-Tacoma International Airport</option>
+            <option value="MCO">Orlando International Airport</option>
+            <option value="EWR">Newark Liberty International Airport</option>
+            <option value="MIA">Miami International Airport</option>
+            <option value="CLT">Charlotte Douglas International Airport</option>
+            <option value="PHX">Phoenix Sky Harbor International Airport</option>
+            <option value="IAH">George Bush Intercontinental Airport</option>
+            <option value="LGA">LaGuardia Airport</option>
+        </select><br>
+
         <label for="destination">Destination:</label>
-        <input type="text" id="destination" name="destination" required><br><br>
+        <select id="destination" name="destination">
+            <option value="ATL">Hartsfield-Jackson Atlanta International Airport</option>
+            <option value="LAX">Los Angeles International Airport</option>
+            <option value="ORD">O'Hare International Airport</option>
+            <option value="DFW">Dallas/Fort Worth International Airport</option>
+            <option value="DEN">Denver International Airport</option>
+            <option value="JFK">John F. Kennedy International Airport</option>
+            <option value="SFO">San Francisco International Airport</option>
+            <option value="LAS">McCarran International Airport</option>
+            <option value="SEA">Seattle-Tacoma International Airport</option>
+            <option value="MCO">Orlando International Airport</option>
+            <option value="EWR">Newark Liberty International Airport</option>
+            <option value="MIA">Miami International Airport</option>
+            <option value="CLT">Charlotte Douglas International Airport</option>
+            <option value="PHX">Phoenix Sky Harbor International Airport</option>
+            <option value="IAH">George Bush Intercontinental Airport</option>
+            <option value="LGA">LaGuardia Airport</option>
+        </select><br>
         
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required><br><br>

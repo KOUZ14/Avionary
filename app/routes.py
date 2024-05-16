@@ -1,53 +1,64 @@
-from flask import render_template, redirect, url_for, request, flash, session
+from flask import render_template, redirect, url_for, request, flash, session, jsonify
 from app import app, db
 from app.models import User
 import requests
 import json
+import os
+from amadeus import Client, ResponseError
+from dotenv import load_dotenv
 
-# Loads the JSON object containing airport data
-with open('app/IATA.json', 'r') as f:
-    airports_data = json.load(f)
+load_dotenv()
 
-# Function to search for airport codes
-def search_airport_code(location_name):
-    for airport in airports_data:
-        if airport['name'].lower() == location_name.lower():
-            return airport['code']
-    return None
+amadeus = Client(
+    client_id = os.getenv('API_KEY'),
+    client_secret = os.getenv('API_SECRET')
+)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if 'logged_in' in session:
-        if request.method == 'POST':
-            # Process flight search form data here
-            origin_name = request.form.get('origin')
-            destination_name = request.form.get('destination')
-            departure_date = request.form.get('date')
-            num_of_adults = 2
-
-            # Search for airport codes for origin and destination
-            origin_code = search_airport_code(origin_name)
-            destination_code = search_airport_code(destination_name)
-
-            if origin_code and destination_code:
-                # Request to Amadeus API using the found airport codes
-                api_key = 'your_amadeus_api_key'
-                url = f'https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode={origin_code}&destinationLocationCode={destination_code}&departureDate={departure_date}&adults={num_of_adults}&apikey={api_key}'
-                response = requests.get(url)
-
-                if response.status_code == 200:
-                    flights = response.json()
-                    return render_template('flight_results.html', flights=flights)
-                else:
-                    flash('Failed to retrieve flight information. Please try again later.', 'error')
-                    return redirect(url_for('index'))
-            else:
-                flash('Invalid origin or destination location.', 'error')
-                return redirect(url_for('index'))
-        else:
-            return render_template('index_logged_in.html')
-    else:
         return render_template('index.html')
+
+
+@app.route('/search_flights', methods=['POST', 'GET'])
+def search_flights():
+    origin_name = request.form.get('origin')
+    destination_name = request.form.get('destination')
+    departure_date = request.form.get('date')
+    num_of_adults = 2 
+    print(origin_name)
+
+    if not origin_name or not destination_name:
+        flash('Invalid origin or destination.', 'error')
+        return redirect(url_for('index')) 
+
+    #flight search using Amadeus API
+    flights = amadeus.shopping.flight_offers_search.get(originLocationCode=origin_name,
+        destinationLocationCode=destination_name,
+        departureDate=departure_date,
+        adults=num_of_adults,
+        max=3)
+
+    if not flights:
+        flash('No flights found.', 'info')
+        return redirect(url_for('index')) 
+
+    return render_template('flight_results.html', flights=flights.data)
+
+
+@app.route('/book_flight', methods=['POST'])
+def book_flight():
+    # Extract booking details from form data
+    flight_id = request.form.get('flight_id')
+    name = request.form.get('name')
+
+    # Perform booking process (this is just a placeholder)
+    # You'll need to implement this based on your booking system
+    # For example, you may need to call the Amadeus API to confirm the booking
+    # Here, we'll just display a success message
+    flash('Flight confirmed.', 'success')
+    return redirect(url_for('index'))
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -73,3 +84,10 @@ def logout():
     # Clear the session variable
     session.pop('logged_in', None)
     return redirect(url_for('index'))
+
+@app.route('/get_recent_flash_message')
+def get_recent_flash_message():
+    message = None
+    if '_flashes' in session:
+        message = session['_flashes'][-1][1]
+    return jsonify({'message': message})
