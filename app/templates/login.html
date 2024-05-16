@@ -6,14 +6,31 @@
     <title>Login</title>
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to fetch the most recent flash message
+            function fetchRecentFlashMessage() {
+                $.getJSON('/get_recent_flash_message', function(data) {
+                    if (data.message) {
+                        // Display the flash message as a popup
+                        alert(data.message);
+                    }
+                });
+            }
+
+            // Call the function when the page is loaded
+            fetchRecentFlashMessage();
+        });
+    </script>
     <h2>Login</h2>
     <form id="loginForm" action="/login" method="POST">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
-        
+
         <button type="submit">Login</button>
     </form>
 </body>
