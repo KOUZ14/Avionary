@@ -1,4 +1,4 @@
 from app import routes
 
-if name == "main":
+if __name__ == "__main__":
     routes.app.run(debug=True)
