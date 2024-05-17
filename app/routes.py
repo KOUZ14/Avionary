@@ -117,3 +117,43 @@ def get_recent_flash_message():
     if '_flashes' in session:
         message = session['_flashes'][-1][1]
     return jsonify({'message': message})
+
+
+
+from datetime import datetime
+
+@app.route('/book_hotel', methods=['POST'])
+def book_hotel():
+    if 'username' in session:
+        location = request.form.get('location')
+        check_in_date = request.form.get('check_in_date')
+        check_out_date = request.form.get('check_out_date')
+        
+
+        booking_details = {
+            'location': location,
+            'check_in_date': check_in_date,
+            'check_out_date': check_out_date
+        }
+
+        flash('Hotel booked successfully!', 'success')
+
+        return redirect(url_for('index'))
+    else:
+        flash('You need to login to book a hotel', 'error')
+        return redirect(url_for('login'))
+
+from datetime import datetime
+
+@app.route('/cancel_hotel_booking', methods=['POST'])
+def cancel_hotel_booking():
+    if 'username' in session:
+        booking_id = request.form.get('booking_id')
+
+        flash(f'Booking {booking_id} canceled successfully!', 'success')
+
+        return redirect(url_for('index'))
+    else:
+        flash('You need to login to cancel a hotel booking', 'error')
+        return redirect(url_for('login'))
+
