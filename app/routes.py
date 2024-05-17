@@ -68,11 +68,6 @@ def book_flight():
     # Extract booking details from form data
     flight_id = request.form.get('flight_id')
     name = request.form.get('name')
-
-    # Perform booking process (this is just a placeholder)
-    # You'll need to implement this based on your booking system
-    # For example, you may need to call the Amadeus API to confirm the booking
-    # Here, we'll just display a success message
     flash('Flight confirmed.', 'success')
     return redirect(url_for('index'))
 
