@@ -81,5 +81,36 @@
     <form action="/logout" method="GET" style="display: inline;">
         <button type="submit">Logout</button>
     </form>
+    <h2>Book Hotel</h2>
+    <form id="hotelBookingForm" action="/book_hotel" method="POST">
+        <label for="location">Location:</label>
+        <select id="location" name="location">
+                <option value="Marriott Marquis Atlanta">Marriott Marquis Atlanta</option>
+                <option value="InterContinental Los Angeles Downtown">InterContinental Los Angeles Downtown</option>
+                <option value="Hilton Chicago">Hilton Chicago</option>
+                <option value="Sheraton Dallas Hotel">Sheraton Dallas Hotel</option>
+                <option value="The Ritz-Carlton Denver">The Ritz-Carlton Denver</option>
+                <option value="JW Marriott San Francisco Union Square">JW Marriott San Francisco Union Square</option>
+                <option value="Bellagio Hotel and Casino">Bellagio Hotel and Casino</option>
+                <option value="The Westin Seattle">The Westin Seattle</option>
+                <option value="Hyatt Regency Orlando">Hyatt Regency Orlando</option>
+                <option value="Newark Liberty International Airport Marriott">Newark Liberty International Airport Marriott</option>
+                <option value="Hilton Miami Airport Blue Lagoon">Hilton Miami Airport Blue Lagoon</option>
+                <option value="Charlotte Marriott City Center">Charlotte Marriott City Center</option>
+                <option value="Phoenix Marriott Resort Tempe at The Buttes">Phoenix Marriott Resort Tempe at The Buttes</option>
+                <option value="Houston Airport Marriott at George Bush Intercontinental">Houston Airport Marriott at George Bush Intercontinental</option>
+                <option value="LaGuardia Plaza Hotel">LaGuardia Plaza Hotel</option>
+            </optgroup>
+            <!-- Add other countries/states as needed -->
+        </select><br>
+
+        <label for="check_in_date">Check-In Date:</label>
+        <input type="date" id="check_in_date" name="check_in_date" required><br>
+
+        <label for="check_out_date">Check-Out Date:</label>
+        <input type="date" id="check_out_date" name="check_out_date" required><br><br>
+
+        <button type="submit">Book Hotel</button>
+    </form>
 </body>
 </html>
